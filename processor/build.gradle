@@ -11,6 +11,7 @@ dependencies {
     implementation deps.poet
     implementation deps.apache.lang
     implementation deps.apache.collections
+    implementation 'javax.activation:activation:1.1.1'
 }
 
-apply from: '../bintray.gradle'
+apply from: "../gradle-mvn-push-java.gradle";

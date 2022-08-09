@@ -20,18 +20,12 @@ package com.yanzhenjie.andserver.annotation;
  */
 public @interface FormPart {
 
-    /**
-     * Alias for {@link #name()}.
-     */
+
     String value() default "";
 
-    /**
-     * The name of the request parameter to bind to.
-     */
+
     String name() default "";
 
-    /**
-     * Whether the parameter is required.
-     */
+
     boolean required() default true;
 }

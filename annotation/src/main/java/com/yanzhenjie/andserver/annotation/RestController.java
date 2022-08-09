@@ -27,8 +27,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 public @interface RestController {
 
-    /**
-     * Group name.
-     */
+
     String value() default "default";
 }

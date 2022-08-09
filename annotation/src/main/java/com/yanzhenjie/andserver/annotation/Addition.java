@@ -27,53 +27,33 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 public @interface Addition {
 
-    /**
-     * Alias for {@link #stringType()}.
-     */
+
     String[] value() default {};
 
-    /**
-     * The added value of the String type.
-     */
+
     String[] stringType() default {};
 
-    /**
-     * The added value of the boolean type.
-     */
+
     boolean[] booleanType() default {};
 
-    /**
-     * The added value of the int type.
-     */
+
     int[] intTypeType() default {};
 
-    /**
-     * The added value of the long type.
-     */
+
     long[] longType() default {};
 
-    /**
-     * The added value of the short type.
-     */
+
     short[] shortType() default {};
 
-    /**
-     * The added value of the float type.
-     */
+
     float[] floatType() default {};
 
-    /**
-     * The added value of the double type.
-     */
+
     double[] doubleType() default {};
 
-    /**
-     * The added value of the byte type.
-     */
+
     byte[] byteType() default {};
 
-    /**
-     * The added value of the char type.
-     */
+
     char[] charType() default {};
 }

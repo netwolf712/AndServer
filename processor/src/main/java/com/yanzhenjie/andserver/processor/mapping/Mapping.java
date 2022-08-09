@@ -23,43 +23,27 @@ import com.yanzhenjie.andserver.annotation.ResponseBody;
  */
 public interface Mapping {
 
-    /**
-     * {@link RequestMapping#value()}
-     */
+
     String[] value();
 
-    /**
-     * {@link RequestMapping#path()}
-     */
+
     String[] path();
 
-    /**
-     * {@link RequestMapping#method()}
-     */
+
     String[] method();
 
-    /**
-     * {@link RequestMapping#params()}
-     */
+
     String[] params();
 
-    /**
-     * {@link RequestMapping#headers()}
-     */
+
     String[] headers();
 
-    /**
-     * {@link RequestMapping#consumes()}
-     */
+
     String[] consumes();
 
-    /**
-     * {@link RequestMapping#produces()}
-     */
+
     String[] produces();
 
-    /**
-     * {@link ResponseBody}
-     */
+
     boolean isRest();
 }

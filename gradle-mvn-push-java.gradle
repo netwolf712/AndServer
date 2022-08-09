@@ -1,0 +1,46 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+javadoc {
+    options.addStringOption("charset", "UTF-8")
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = GROUP
+            version = VERSION_CODE
+            artifactId = POM_ARTIFACT_ID
+            from components.java
+            pom {
+                name = POM_ARTIFACT_ID
+                description = POM_DESCRIPTION
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "OSSRH"
+            if (project.version.toString().endsWith("-SNAPSHOT")) {
+                url = SNAPSHOT_REPOSITORY_URL
+            } else {
+                url = SNAPSHOT_REPOSITORY_URL
+            }
+            allowInsecureProtocol = true
+            credentials {
+                username = NEXUS_USERNAME
+                password = NEXUS_PASSWORD
+            }
+        }
+    }
+}
+
+//signing {
+//    sign(publishing.publications.mavenJava)
+//}

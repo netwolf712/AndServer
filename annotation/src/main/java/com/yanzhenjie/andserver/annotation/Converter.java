@@ -27,8 +27,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 public @interface Converter {
 
-    /**
-     * Group name.
-     */
     String value() default "default";
 }

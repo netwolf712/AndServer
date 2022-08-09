@@ -27,29 +27,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 public @interface PathVariable {
 
-    /**
-     * Alias for {@link #name()}.
-     */
+
     String value() default "";
 
-    /**
-     * The name of the path variable to bind to.
-     */
+
     String name() default "";
 
-    /**
-     * Whether the path is required.
-     *
-     * <p>Defaults to {@code true}, leading to an exception being thrown if the path is missing in the request.
-     *
-     * <p>Alternatively, provide a {@link #defaultValue()}, which implicitly sets this flag to {@code false}.
-     */
+
     boolean required() default true;
 
-    /**
-     * The default value to use as a fallback.
-     *
-     * <p>Supplying a default value implicitly sets {@link #required()} to {@code false}.
-     */
+
     String defaultValue() default "";
 }

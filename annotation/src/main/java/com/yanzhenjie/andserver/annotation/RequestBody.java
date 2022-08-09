@@ -27,10 +27,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 public @interface RequestBody {
 
-    /**
-     * Whether body content is required.
-     *
-     * <p>Default is {@code true}, leading to an exception thrown in case there is no body content.
-     */
+
     boolean required() default true;
 }

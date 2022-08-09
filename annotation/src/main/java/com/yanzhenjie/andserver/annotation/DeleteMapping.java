@@ -27,33 +27,16 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 public @interface DeleteMapping {
 
-    /**
-     * Alias for {@link RequestMapping#value()}.
-     */
+
     String[] value() default {};
 
-    /**
-     * Alias for {@link RequestMapping#path()}.
-     */
     String[] path() default {};
 
-    /**
-     * Alias for {@link RequestMapping#params()}.
-     */
     String[] params() default {};
 
-    /**
-     * Alias for {@link RequestMapping#headers()}.
-     */
     String[] headers() default {};
 
-    /**
-     * Alias for {@link RequestMapping#consumes()}.
-     */
     String[] consumes() default {};
 
-    /**
-     * Alias for {@link RequestMapping#produces()}.
-     */
     String[] produces() default {};
 }

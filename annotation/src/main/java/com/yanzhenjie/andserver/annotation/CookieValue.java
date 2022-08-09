@@ -27,30 +27,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.SOURCE)
 public @interface CookieValue {
 
-    /**
-     * Alias for {@link #name()}.
-     */
+
     String value() default "";
 
-    /**
-     * The name of the cookie to bind to.
-     */
+
     String name() default "";
 
-    /**
-     * Whether the cookie is required.
-     *
-     * <p>Defaults to {@code true}, leading to an exception being thrown if the cookie is missing in the request. Switch
-     * this to {@code false} if you prefer a {@code null} value if the cookie is not present in the request.
-     *
-     * <p>Alternatively, provide a {@link #defaultValue()}, which implicitly sets this flag to {@code false}.
-     */
+
     boolean required() default true;
 
-    /**
-     * The default value to use as a fallback.
-     *
-     * <p>Supplying a default value implicitly sets {@link #required()} to {@code false}.
-     */
+
     String defaultValue() default "";
 }
