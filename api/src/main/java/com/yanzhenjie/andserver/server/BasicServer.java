@@ -91,7 +91,7 @@ public abstract class BasicServer<T extends BasicServer.Builder> implements Serv
                                 .setBacklogSize(BUFFER)
                                 .setRcvBufSize(BUFFER)
                                 .setSndBufSize(BUFFER)
-                                .setSoLinger(0)
+                                .setSoLinger(-1)
                                 .build()
                         )
                         .setLocalAddress(mInetAddress)
