@@ -26,16 +26,16 @@ publishing {
     }
     repositories {
         maven {
-            name = "OSSRH"
+            name = "GitHubPackages"
             if (project.version.toString().endsWith("-SNAPSHOT")) {
                 url = SNAPSHOT_REPOSITORY_URL
             } else {
-                url = SNAPSHOT_REPOSITORY_URL
+                url = RELEASE_REPOSITORY_URL
             }
             allowInsecureProtocol = true
             credentials {
-                username = NEXUS_USERNAME
-                password = NEXUS_PASSWORD
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
