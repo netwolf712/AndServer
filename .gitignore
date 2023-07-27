@@ -3,7 +3,9 @@
 /build/
 .gradle
 /local.properties
+/gradle.properties
 .DS_Store
 /captures
 .externalNativeBuild
 /maven-repo
+*.gpg

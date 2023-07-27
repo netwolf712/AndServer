@@ -48,6 +48,15 @@ def getSonatypeUserName() {
 def getSonatypePassword() {
     return hasProperty('SONATYPE_PASSWORD') ? SONATYPE_PASSWORD : ""
 }
+def getReleaseRepositoryUrl() {
+    return hasProperty('RELEASE_REPOSITORY_URL') ? RELEASE_REPOSITORY_URL
+            : "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+}
+
+def getSnapshotRepositoryUrl() {
+    return hasProperty('SNAPSHOT_REPOSITORY_URL') ? SNAPSHOT_REPOSITORY_URL
+            : "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+}
 
 afterEvaluate { project ->
     uploadArchives {
@@ -56,10 +65,10 @@ afterEvaluate { project ->
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
                 if (toRemote) {
-                    repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
+                    repository(url: getReleaseRepositoryUrl()) {
                         authentication(userName: getSonatypeUserName(), password: getSonatypePassword())
                     }
-                    snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots/') {
+                    snapshotRepository(url: getSnapshotRepositoryUrl()) {
                         authentication(userName: getSonatypeUserName(), password: getSonatypePassword())
                     }
                 } else {

@@ -1,5 +1,5 @@
 apply plugin: plugin.javaLibrary
-apply plugin: plugin.javaPlugin
+
 
 compileJava {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -14,4 +14,4 @@ dependencies {
     implementation deps.poet
 }
 
-apply from: "../gradle-mvn-push-java.gradle";
+apply from: "../central.gradle";
