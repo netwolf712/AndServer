@@ -33,8 +33,8 @@ def getSonatypePassword() {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = GROUP
-            version = VERSION_CODE
+            groupId = PROJECT_GROUP
+            version = PROJECT_VERSION
             artifactId = POM_ARTIFACT_ID
             from components.java
             pom {

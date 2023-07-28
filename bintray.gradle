@@ -18,7 +18,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 def isReleaseBuild() {
-    return VERSION_NAME.contains("SNAPSHOT") == false
+    return PROJECT_VERSION.contains("SNAPSHOT") == false
 }
 
 def getReleaseRepositoryUrl() {
@@ -41,9 +41,9 @@ def getSonatypePassword() {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = GROUP
+            groupId = PROJECT_GROUP
             artifactId = POM_ARTIFACT_ID
-            version = VERSION_CODE
+            version = PROJECT_VERSION
             artifact "build/outputs/aar/" + POM_ARTIFACT_ID + "-debug.aar"
             pom.withXml{
                 def dependenciesNode = asNode().appendNode("dependencies")
@@ -75,9 +75,9 @@ afterEvaluate { project ->
             mavenDeployer {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-                pom.groupId = GROUP
+                pom.groupId = PROJECT_GROUP
                 pom.artifactId = POM_ARTIFACT_ID
-                pom.version = VERSION_NAME
+                pom.version = PROJECT_VERSION
 
                 repository(url: getReleaseRepositoryUrl()) {
                     authentication(userName: getRepositoryUsername(), password: getRepositoryPassword())
